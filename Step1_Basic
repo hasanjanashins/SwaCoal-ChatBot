@@ -1,61 +1,110 @@
-def coal_industry_chatbot(query, user_type):
+def coal_industry_chatbot(user_type):
     responses = {
         "farmer": {
-            "what are the benefits of coal for agriculture?": "Coal can be used as a source of energy for agricultural processes such as drying crops and heating greenhouses.",
-            "how does coal mining impact farmland?": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland.",
-            "exit": "Thank you for using the coal industry chatbot. Goodbye, farmer!"
+            "questions": {
+                "What are the benefits of coal for agriculture?": "Coal can be used as a source of energy for agricultural processes such as drying crops and heating greenhouses.",
+                "How does coal mining impact farmland?": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, farmer!"
         },
         "driver": {
-            "how does coal contribute to transportation?": "Coal is used in the production of steel, which is used to manufacture vehicles and infrastructure for transportation.",
-            "what are the environmental impacts of coal-powered transportation?": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions.",
-            "exit": "Thank you for using the coal industry chatbot. Goodbye, driver!"
+            "questions": {
+                "How does coal contribute to transportation?": "Coal is used in the production of steel, which is used to manufacture vehicles and infrastructure for transportation.",
+                "What are the environmental impacts of coal-powered transportation?": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, driver!"
+        },
+        "environmentalist": {
+            "questions": {
+                "What are the environmental benefits of reducing coal usage?": "Reducing coal usage can lead to decreased air and water pollution, lower greenhouse gas emissions, and preservation of natural habitats.",
+                "What are some alternative energy sources to coal?": "Alternative energy sources to coal include renewable energy sources such as solar, wind, hydroelectric, and geothermal power."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, environmentalist!"
+        },
+        "legal staff": {
+            "questions": {
+                "What are the legal regulations surrounding coal mining?": "Legal regulations surrounding coal mining include environmental protection laws, safety regulations, and land use policies.",
+                "How can legal issues related to coal mining be addressed?": "Legal issues related to coal mining can be addressed through compliance with regulations, negotiation with stakeholders, and legal advocacy."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, legal staff!"
+        },
+        "ccl employee": {
+            "questions": {
+                "What is the role of CCL (Coal India Limited) in the coal industry?": "CCL is responsible for coal exploration, production, and marketing in India.",
+                "What are the challenges faced by CCL employees?": "Challenges faced by CCL employees may include safety hazards, environmental concerns, and labor issues."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, CCL employee!"
+        },
+        "miners": {
+            "questions": {
+                "What are the safety precautions for miners working in coal mines?": "Safety precautions for miners may include wearing protective gear, undergoing training, and following safety protocols.",
+                "What are the health risks associated with coal mining?": "Health risks associated with coal mining may include respiratory diseases, musculoskeletal disorders, and hearing loss."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, miners!"
+        },
+        "drillers": {
+            "questions": {
+                "What is the role of drillers in the coal industry?": "Drillers are responsible for drilling holes for blasting and extracting coal from underground mines.",
+                "What are the skills required to be a driller in the coal industry?": "Skills required to be a driller may include operating drilling equipment, understanding geological formations, and adhering to safety procedures."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, drillers!"
+        },
+        "emergency": {
+            "questions": {
+                "What to do in case of a medical emergency in a coal mine?": "In case of a medical emergency in a coal mine, immediately inform the supervisor and seek medical assistance. Follow the emergency procedures and provide first aid if trained to do so.",
+                "What medicines should be available for injuries in coal mines?": "Medicines for injuries in coal mines may include pain relievers, antiseptics, bandages, and antibiotics.",
+                "What are the dos and don'ts in case of an emergency in a coal mine?": "Dos: Stay calm, follow emergency procedures, provide assistance if possible. Don'ts: Panic, ignore safety protocols, delay seeking medical help."
+            },
+            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye!"
         }
     }
     
-    query = query.lower()
-    if query in responses[user_type]:
-        return responses[user_type][query]
+    print("SwaCoal Chatbot: Please choose a question:")
+    for index, question in enumerate(responses[user_type]["questions"].keys(), start=1):
+        print(f"{index}. {question}")
+    print("exit. Exit chatbot")
+
+    question_choice = input("Enter your question choice (1-{} or exit): ".format(len(responses[user_type]["questions"])))
+    while question_choice not in [str(i) for i in range(1, len(responses[user_type]["questions"]) + 1)] + ['exit']:
+        print("SwaCoal Chatbot: Invalid choice. Please enter a number between 1 and {} or 'exit' to exit.".format(len(responses[user_type]["questions"])))
+        question_choice = input("Enter your question choice (1-{} or exit): ".format(len(responses[user_type]["questions"])))
+
+    if question_choice == 'exit':
+        return "SwaCoal Chatbot: Thank you for using the SwaCoal Chatbot. Goodbye!"
     else:
-        return "I'm sorry, I don't understand that question. Please ask another question related to the coal industry."
+        questions = list(responses[user_type]["questions"].keys())
+        return responses[user_type]["questions"][questions[int(question_choice) - 1]]
+
 
 def greet():
-    print("Welcome to the Coal Industry Chatbot!")
-    print("What would you like to do?")
-    print("1. Ask questions")
-    print("2. Identify as a farmer")
-    print("3. Identify as a driver")
-    choice = input("Enter your choice (1, 2, or 3): ")
-    while choice not in ['1', '2', '3']:
-        print("Invalid choice. Please enter 1, 2, or 3.")
-        choice = input("Enter your choice (1, 2, or 3): ")
-    if choice == '1':
-        print("You can ask questions about the coal industry.")
-        user_type = None
-    elif choice == '2':
-        print("Great! You identified as a farmer.")
-        user_type = "farmer"
-    elif choice == '3':
-        print("Great! You identified as a driver.")
-        user_type = "driver"
+    print("SwaCoal Chatbot: Hi there! I'm the SwaCoal Chatbot. How can I assist you today?")
+    print("User: ")
+    user_greeting = input().lower()
+    while user_greeting not in ['hi', 'hello']:
+        print("SwaCoal Chatbot: I'm sorry, I didn't catch that. Could you say 'hi' or 'hello' to start the conversation?")
+        print("User: ")
+        user_greeting = input().lower()
+
+    print("SwaCoal Chatbot: Great! What would you like to do?")
+    print("1. Identify as a farmer")
+    print("2. Identify as a driver")
+    print("3. Identify as an environmentalist")
+    print("4. Identify as legal staff")
+    print("5. Identify as a CCL employee")
+    print("6. Identify as a miner")
+    print("7. Identify as a driller")
+    print("8. Emergency")
+    choice = input("Enter your choice (1-8): ")
+    while choice not in ['1', '2', '3', '4', '5', '6', '7', '8']:
+        print("SwaCoal Chatbot: Invalid choice. Please enter a number between 1 and 8.")
+        choice = input("Enter your choice (1-8): ")
+
+    user_types = ["farmer", "driver", "environmentalist", "legal staff", "ccl employee", "miners", "drillers", "emergency"]
+    user_type = user_types[int(choice) - 1]
+
     return user_type
+
 
 if __name__ == "__main__":
     user_type = greet()
-    
-    while True:
-        if user_type:
-            user_query = input("You: ")
-            if user_query.lower() == 'exit':
-                print(coal_industry_chatbot(user_query, user_type))
-                break
-            else:
-                response = coal_industry_chatbot(user_query, user_type)
-                print("Chatbot:", response)
-        else:
-            user_query = input("You: ")
-            if user_query.lower() == 'exit':
-                print("Thank you for using the coal industry chatbot. Goodbye!")
-                break
-            else:
-                print("I'm sorry, you need to identify as a farmer or a driver before asking questions.")
-                user_type = greet()
+    print("SwaCoal Chatbot:", coal_industry_chatbot(user_type))
