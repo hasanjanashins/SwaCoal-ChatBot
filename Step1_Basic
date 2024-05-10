@@ -1,0 +1,61 @@
+def coal_industry_chatbot(query, user_type):
+    responses = {
+        "farmer": {
+            "what are the benefits of coal for agriculture?": "Coal can be used as a source of energy for agricultural processes such as drying crops and heating greenhouses.",
+            "how does coal mining impact farmland?": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland.",
+            "exit": "Thank you for using the coal industry chatbot. Goodbye, farmer!"
+        },
+        "driver": {
+            "how does coal contribute to transportation?": "Coal is used in the production of steel, which is used to manufacture vehicles and infrastructure for transportation.",
+            "what are the environmental impacts of coal-powered transportation?": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions.",
+            "exit": "Thank you for using the coal industry chatbot. Goodbye, driver!"
+        }
+    }
+    
+    query = query.lower()
+    if query in responses[user_type]:
+        return responses[user_type][query]
+    else:
+        return "I'm sorry, I don't understand that question. Please ask another question related to the coal industry."
+
+def greet():
+    print("Welcome to the Coal Industry Chatbot!")
+    print("What would you like to do?")
+    print("1. Ask questions")
+    print("2. Identify as a farmer")
+    print("3. Identify as a driver")
+    choice = input("Enter your choice (1, 2, or 3): ")
+    while choice not in ['1', '2', '3']:
+        print("Invalid choice. Please enter 1, 2, or 3.")
+        choice = input("Enter your choice (1, 2, or 3): ")
+    if choice == '1':
+        print("You can ask questions about the coal industry.")
+        user_type = None
+    elif choice == '2':
+        print("Great! You identified as a farmer.")
+        user_type = "farmer"
+    elif choice == '3':
+        print("Great! You identified as a driver.")
+        user_type = "driver"
+    return user_type
+
+if __name__ == "__main__":
+    user_type = greet()
+    
+    while True:
+        if user_type:
+            user_query = input("You: ")
+            if user_query.lower() == 'exit':
+                print(coal_industry_chatbot(user_query, user_type))
+                break
+            else:
+                response = coal_industry_chatbot(user_query, user_type)
+                print("Chatbot:", response)
+        else:
+            user_query = input("You: ")
+            if user_query.lower() == 'exit':
+                print("Thank you for using the coal industry chatbot. Goodbye!")
+                break
+            else:
+                print("I'm sorry, you need to identify as a farmer or a driver before asking questions.")
+                user_type = greet()
