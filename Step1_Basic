@@ -64,10 +64,6 @@ def coal_industry_chatbot(user_type, selected_language):
                 "spanish": "¡Gracias por usar el Chatbot de SwaCoal. Adiós, personal legal!"
             }
         },
-        # Add responses for other user types here
-
-        # Existing code for other user types and responses
-
         "emergency": {
             "questions": {
                 "What to do in case of a medical emergency in a coal mine?": {
@@ -82,7 +78,6 @@ def coal_industry_chatbot(user_type, selected_language):
                     "english": "Dos: Stay calm, follow emergency procedures, provide assistance if possible. Don'ts: Panic, ignore safety protocols, delay seeking medical help.",
                     "spanish": "Dos: Mantén la calma, sigue los procedimientos de emergencia, proporciona ayuda si es posible. No hagas: Pánico, ignora los protocolos de seguridad, retrasa la búsqueda de ayuda médica."
                 },
-                # Add more questions for emergencies here
             },
             "exit": {
                 "english": "Thank you for using the SwaCoal Chatbot. Goodbye!",
@@ -132,7 +127,7 @@ def greet():
         print("SwaCoal Chatbot: Invalid choice. Please enter a number between 1 and 8.")
         choice = input("Enter your choice (1-8): ")
 
-    user_types = ["farmer", "driver", "environmentalist", "legal staff", "ccl employee", "miners", "drillers", "emergency"]
+    user_types = ["farmer", "driver", "environmentalist", "legal staff", "CCL employee", "miners", "drillers", "emergency"]
     user_type = user_types[int(choice) - 1]
 
     print("SwaCoal Chatbot: Please select your language:")
