@@ -9,6 +9,14 @@ def coal_industry_chatbot(user_type, selected_language):
                 "How does coal mining impact farmland?": {
                     "english": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland.",
                     "spanish": "La minería de carbón puede provocar perturbaciones en el suelo y contaminación del suelo y el agua, lo que puede afectar negativamente a las tierras de cultivo."
+                },
+                "What are some modern techniques for sustainable coal farming?": {
+                    "english": "Modern techniques for sustainable coal farming include land reclamation, soil erosion control, and water management practices.",
+                    "spanish": "Algunas técnicas modernas para la minería de carbón sostenible incluyen la recuperación de tierras, el control de la erosión del suelo y prácticas de gestión del agua."
+                },
+                "How can farmers minimize the environmental impact of coal usage?": {
+                    "english": "Farmers can minimize the environmental impact of coal usage by implementing energy-efficient technologies, using clean coal technologies, and practicing carbon sequestration.",
+                    "spanish": "Los agricultores pueden minimizar el impacto ambiental del uso del carbón mediante la implementación de tecnologías energéticamente eficientes, el uso de tecnologías de carbón limpio y la práctica de la captura de carbono."
                 }
             },
             "exit": {
@@ -25,6 +33,14 @@ def coal_industry_chatbot(user_type, selected_language):
                 "What are the environmental impacts of coal-powered transportation?": {
                     "english": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions.",
                     "spanish": "El transporte impulsado por carbón puede contribuir a la contaminación del aire y las emisiones de gases de efecto invernadero."
+                },
+                "How can coal-powered transportation be made more sustainable?": {
+                    "english": "Coal-powered transportation can be made more sustainable by implementing emission control technologies, promoting fuel efficiency, and investing in alternative fuels.",
+                    "spanish": "El transporte impulsado por carbón puede hacerse más sostenible mediante la implementación de tecnologías de control de emisiones, la promoción de la eficiencia del combustible y la inversión en combustibles alternativos."
+                },
+                "What are the challenges of transitioning from coal-powered to alternative transportation?": {
+                    "english": "Challenges of transitioning from coal-powered to alternative transportation include infrastructure changes, technological limitations, and economic considerations.",
+                    "spanish": "Los desafíos de la transición del transporte impulsado por carbón al transporte alternativo incluyen cambios en la infraestructura, limitaciones tecnológicas y consideraciones económicas."
                 }
             },
             "exit": {
@@ -41,6 +57,14 @@ def coal_industry_chatbot(user_type, selected_language):
                 "What are some alternative energy sources to coal?": {
                     "english": "Alternative energy sources to coal include renewable energy sources such as solar, wind, hydroelectric, and geothermal power.",
                     "spanish": "Las fuentes de energía alternativas al carbón incluyen fuentes de energía renovable como la solar, eólica, hidroeléctrica y geotérmica."
+                },
+                "How can individuals contribute to reducing coal consumption?": {
+                    "english": "Individuals can contribute to reducing coal consumption by conserving energy, supporting renewable energy initiatives, and advocating for sustainable policies.",
+                    "spanish": "Las personas pueden contribuir a reducir el consumo de carbón mediante la conservación de energía, el apoyo a iniciativas de energía renovable y la defensa de políticas sostenibles."
+                },
+                "What are the economic implications of transitioning away from coal?": {
+                    "english": "The economic implications of transitioning away from coal include job displacement, changes in energy prices, and investment in new industries.",
+                    "spanish": "Las implicaciones económicas de alejarse del carbón incluyen la pérdida de empleo, cambios en los precios de la energía e inversión en nuevas industrias."
                 }
             },
             "exit": {
@@ -57,6 +81,14 @@ def coal_industry_chatbot(user_type, selected_language):
                 "How can legal issues related to coal mining be addressed?": {
                     "english": "Legal issues related to coal mining can be addressed through compliance with regulations, negotiation with stakeholders, and legal advocacy.",
                     "spanish": "Los problemas legales relacionados con la minería de carbón pueden abordarse mediante el cumplimiento de regulaciones, la negociación con partes interesadas y la defensa legal."
+                },
+                "What are the environmental liabilities associated with coal mining?": {
+                    "english": "Environmental liabilities associated with coal mining may include land reclamation costs, water treatment expenses, and ecological restoration efforts.",
+                    "spanish": "Las responsabilidades ambientales asociadas con la minería de carbón pueden incluir costos de recuperación de tierras, gastos de tratamiento de agua y esfuerzos de restauración ecológica."
+                },
+                "How do international laws impact coal mining operations?": {
+                    "english": "International laws impact coal mining operations by setting standards for environmental protection, labor rights, and trade agreements.",
+                    "spanish": "Las leyes internacionales afectan las operaciones de minería de carbón al establecer normas para la protección del medio ambiente, los derechos laborales y los acuerdos comerciales."
                 }
             },
             "exit": {
@@ -78,6 +110,10 @@ def coal_industry_chatbot(user_type, selected_language):
                     "english": "Dos: Stay calm, follow emergency procedures, provide assistance if possible. Don'ts: Panic, ignore safety protocols, delay seeking medical help.",
                     "spanish": "Dos: Mantén la calma, sigue los procedimientos de emergencia, proporciona ayuda si es posible. No hagas: Pánico, ignora los protocolos de seguridad, retrasa la búsqueda de ayuda médica."
                 },
+                "What safety equipment should be readily available in a coal mine?": {
+                    "english": "Safety equipment in a coal mine should include helmets, respirators, safety goggles, and protective clothing.",
+                    "spanish": "El equipo de seguridad en una mina de carbón debe incluir cascos, respiradores, gafas de seguridad y ropa protectora."
+                }
             },
             "exit": {
                 "english": "Thank you for using the SwaCoal Chatbot. Goodbye!",
@@ -114,13 +150,13 @@ def greet():
         user_greeting = input().lower()
 
     print("SwaCoal Chatbot: Great! What would you like to do?")
-    print("1. Identify as a farmer")
-    print("2. Identify as a driver")
-    print("3. Identify as an environmentalist")
+    print("1. Identify as a farmers")
+    print("2. Identify as a drivers")
+    print("3. Identify as an environmentalists")
     print("4. Identify as legal staff")
-    print("5. Identify as a CCL employee")
-    print("6. Identify as a miner")
-    print("7. Identify as a driller")
+    print("5. Identify as a CCL Employee")
+    print("6. Identify as a miners")
+    print("7. Identify as a drillers")
     print("8. Emergency")
     choice = input("Enter your choice (1-8): ")
     while choice not in ['1', '2', '3', '4', '5', '6', '7', '8']:
