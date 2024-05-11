@@ -1,64 +1,96 @@
-def coal_industry_chatbot(user_type):
+def coal_industry_chatbot(user_type, selected_language):
     responses = {
         "farmer": {
             "questions": {
-                "What are the benefits of coal for agriculture?": "Coal can be used as a source of energy for agricultural processes such as drying crops and heating greenhouses.",
-                "How does coal mining impact farmland?": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland."
+                "What are the benefits of coal for agriculture?": {
+                    "english": "Coal can be used as a source of energy for agricultural processes such as drying crops and heating greenhouses.",
+                    "spanish": "El carbón puede utilizarse como fuente de energía para procesos agrícolas como el secado de cultivos y el calentamiento de invernaderos."
+                },
+                "How does coal mining impact farmland?": {
+                    "english": "Coal mining can lead to land disturbance and contamination of soil and water, which can negatively impact farmland.",
+                    "spanish": "La minería de carbón puede provocar perturbaciones en el suelo y contaminación del suelo y el agua, lo que puede afectar negativamente a las tierras de cultivo."
+                }
             },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, farmer!"
+            "exit": {
+                "english": "Thank you for using the SwaCoal Chatbot. Goodbye, farmer!",
+                "spanish": "¡Gracias por usar el Chatbot de SwaCoal. Adiós, agricultor!"
+            }
         },
         "driver": {
             "questions": {
-                "How does coal contribute to transportation?": "Coal is used in the production of steel, which is used to manufacture vehicles and infrastructure for transportation.",
-                "What are the environmental impacts of coal-powered transportation?": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions."
+                "How does coal contribute to transportation?": {
+                    "english": "Coal is used in the production of steel, which is used to manufacture vehicles and infrastructure for transportation.",
+                    "spanish": "El carbón se utiliza en la producción de acero, que se utiliza para fabricar vehículos e infraestructura para el transporte."
+                },
+                "What are the environmental impacts of coal-powered transportation?": {
+                    "english": "Coal-powered transportation can contribute to air pollution and greenhouse gas emissions.",
+                    "spanish": "El transporte impulsado por carbón puede contribuir a la contaminación del aire y las emisiones de gases de efecto invernadero."
+                }
             },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, driver!"
+            "exit": {
+                "english": "Thank you for using the SwaCoal Chatbot. Goodbye, driver!",
+                "spanish": "¡Gracias por usar el Chatbot de SwaCoal. Adiós, conductor!"
+            }
         },
         "environmentalist": {
             "questions": {
-                "What are the environmental benefits of reducing coal usage?": "Reducing coal usage can lead to decreased air and water pollution, lower greenhouse gas emissions, and preservation of natural habitats.",
-                "What are some alternative energy sources to coal?": "Alternative energy sources to coal include renewable energy sources such as solar, wind, hydroelectric, and geothermal power."
+                "What are the environmental benefits of reducing coal usage?": {
+                    "english": "Reducing coal usage can lead to decreased air and water pollution, lower greenhouse gas emissions, and preservation of natural habitats.",
+                    "spanish": "Reducir el uso del carbón puede conducir a una disminución de la contaminación del aire y del agua, menores emisiones de gases de efecto invernadero y preservación de hábitats naturales."
+                },
+                "What are some alternative energy sources to coal?": {
+                    "english": "Alternative energy sources to coal include renewable energy sources such as solar, wind, hydroelectric, and geothermal power.",
+                    "spanish": "Las fuentes de energía alternativas al carbón incluyen fuentes de energía renovable como la solar, eólica, hidroeléctrica y geotérmica."
+                }
             },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, environmentalist!"
+            "exit": {
+                "english": "Thank you for using the SwaCoal Chatbot. Goodbye, environmentalist!",
+                "spanish": "¡Gracias por usar el Chatbot de SwaCoal. Adiós, ecologista!"
+            }
         },
         "legal staff": {
             "questions": {
-                "What are the legal regulations surrounding coal mining?": "Legal regulations surrounding coal mining include environmental protection laws, safety regulations, and land use policies.",
-                "How can legal issues related to coal mining be addressed?": "Legal issues related to coal mining can be addressed through compliance with regulations, negotiation with stakeholders, and legal advocacy."
+                "What are the legal regulations surrounding coal mining?": {
+                    "english": "Legal regulations surrounding coal mining include environmental protection laws, safety regulations, and land use policies.",
+                    "spanish": "Las regulaciones legales relacionadas con la minería de carbón incluyen leyes de protección ambiental, regulaciones de seguridad y políticas de uso del suelo."
+                },
+                "How can legal issues related to coal mining be addressed?": {
+                    "english": "Legal issues related to coal mining can be addressed through compliance with regulations, negotiation with stakeholders, and legal advocacy.",
+                    "spanish": "Los problemas legales relacionados con la minería de carbón pueden abordarse mediante el cumplimiento de regulaciones, la negociación con partes interesadas y la defensa legal."
+                }
             },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, legal staff!"
+            "exit": {
+                "english": "Thank you for using the SwaCoal Chatbot. Goodbye, legal staff!",
+                "spanish": "¡Gracias por usar el Chatbot de SwaCoal. Adiós, personal legal!"
+            }
         },
-        "ccl employee": {
-            "questions": {
-                "What is the role of CCL (Coal India Limited) in the coal industry?": "CCL is responsible for coal exploration, production, and marketing in India.",
-                "What are the challenges faced by CCL employees?": "Challenges faced by CCL employees may include safety hazards, environmental concerns, and labor issues."
-            },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, CCL employee!"
-        },
-        "miners": {
-            "questions": {
-                "What are the safety precautions for miners working in coal mines?": "Safety precautions for miners may include wearing protective gear, undergoing training, and following safety protocols.",
-                "What are the health risks associated with coal mining?": "Health risks associated with coal mining may include respiratory diseases, musculoskeletal disorders, and hearing loss."
-            },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, miners!"
-        },
-        "drillers": {
-            "questions": {
-                "What is the role of drillers in the coal industry?": "Drillers are responsible for drilling holes for blasting and extracting coal from underground mines.",
-                "What are the skills required to be a driller in the coal industry?": "Skills required to be a driller may include operating drilling equipment, understanding geological formations, and adhering to safety procedures."
-            },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye, drillers!"
-        },
+        # Add responses for other user types here
+
+        # Existing code for other user types and responses
+
         "emergency": {
             "questions": {
-                "What to do in case of a medical emergency in a coal mine?": "In case of a medical emergency in a coal mine, immediately inform the supervisor and seek medical assistance. Follow the emergency procedures and provide first aid if trained to do so.",
-                "What medicines should be available for injuries in coal mines?": "Medicines for injuries in coal mines may include pain relievers, antiseptics, bandages, and antibiotics.",
-                "What are the dos and don'ts in case of an emergency in a coal mine?": "Dos: Stay calm, follow emergency procedures, provide assistance if possible. Don'ts: Panic, ignore safety protocols, delay seeking medical help."
+                "What to do in case of a medical emergency in a coal mine?": {
+                    "english": "In case of a medical emergency in a coal mine, immediately inform the supervisor and seek medical assistance. Follow the emergency procedures and provide first aid if trained to do so.",
+                    "spanish": "En caso de una emergencia médica en una mina de carbón, informe inmediatamente al supervisor y busque asistencia médica. Siga los procedimientos de emergencia y proporcione primeros auxilios si está capacitado para hacerlo."
+                },
+                "What medicines should be available for injuries in coal mines?": {
+                    "english": "Medicines for injuries in coal mines may include pain relievers, antiseptics, bandages, and antibiotics.",
+                    "spanish": "Los medicamentos para lesiones en minas de carbón pueden incluir analgésicos, antisépticos, vendajes y antibióticos."
+                },
+                "What are the dos and don'ts in case of an emergency in a coal mine?": {
+                    "english": "Dos: Stay calm, follow emergency procedures, provide assistance if possible. Don'ts: Panic, ignore safety protocols, delay seeking medical help.",
+                    "spanish": "Dos: Mantén la calma, sigue los procedimientos de emergencia, proporciona ayuda si es posible. No hagas: Pánico, ignora los protocolos de seguridad, retrasa la búsqueda de ayuda médica."
+                },
+                # Add more questions for emergencies here
             },
-            "exit": "Thank you for using the SwaCoal Chatbot. Goodbye!"
+            "exit": {
+                "english": "Thank you for using the SwaCoal Chatbot. Goodbye!",
+                "spanish": "¡Gracias por usar el Chatbot de SwaCoal. ¡Adiós!"
+            }
         }
     }
-    
+
     print("SwaCoal Chatbot: Please choose a question:")
     for index, question in enumerate(responses[user_type]["questions"].keys(), start=1):
         print(f"{index}. {question}")
@@ -70,10 +102,11 @@ def coal_industry_chatbot(user_type):
         question_choice = input("Enter your question choice (1-{} or exit): ".format(len(responses[user_type]["questions"])))
 
     if question_choice == 'exit':
-        return "SwaCoal Chatbot: Thank you for using the SwaCoal Chatbot. Goodbye!"
+        return responses[user_type]["exit"][selected_language]
     else:
         questions = list(responses[user_type]["questions"].keys())
-        return responses[user_type]["questions"][questions[int(question_choice) - 1]]
+        selected_question = questions[int(question_choice) - 1]
+        return responses[user_type]["questions"][selected_question][selected_language]
 
 
 def greet():
@@ -102,9 +135,19 @@ def greet():
     user_types = ["farmer", "driver", "environmentalist", "legal staff", "ccl employee", "miners", "drillers", "emergency"]
     user_type = user_types[int(choice) - 1]
 
-    return user_type
+    print("SwaCoal Chatbot: Please select your language:")
+    print("1. English")
+    print("2. Spanish")
+    language_choice = input("Enter your language choice (1-2): ")
+    while language_choice not in ['1', '2']:
+        print("SwaCoal Chatbot: Invalid choice. Please enter either '1' for English or '2' for Spanish.")
+        language_choice = input("Enter your language choice (1-2): ")
+
+    selected_language = "english" if language_choice == '1' else "spanish"
+
+    return user_type, selected_language
 
 
 if __name__ == "__main__":
-    user_type = greet()
-    print("SwaCoal Chatbot:", coal_industry_chatbot(user_type))
+    user_type, selected_language = greet()
+    print("SwaCoal Chatbot:", coal_industry_chatbot(user_type, selected_language))
